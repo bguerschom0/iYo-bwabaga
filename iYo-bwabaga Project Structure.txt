@@ -1,0 +1,131 @@
+iyo-bwabaga/
+├── .github/
+│   └── workflows/
+│       └── deploy.yml
+├── public/
+│   ├── assets/
+│   │   ├── images/
+│   │   └── icons/
+│   └── locales/          # For multilingual support
+├── src/
+│   ├── app/
+│   │   ├── (auth)/
+│   │   │   ├── login/
+│   │   │   ├── register/
+│   │   │   └── forgot-password/
+│   │   ├── (dashboard)/
+│   │   │   ├── admin/
+│   │   │   │   ├── products/
+│   │   │   │   ├── orders/
+│   │   │   │   ├── customers/
+│   │   │   │   ├── analytics/
+│   │   │   │   └── settings/
+│   │   │   └── customer/
+│   │   │       ├── profile/
+│   │   │       ├── orders/
+│   │   │       └── wishlist/
+│   │   ├── products/
+│   │   │   ├── [category]/
+│   │   │   └── [id]/
+│   │   └── chat/
+│   ├── components/
+│   │   ├── ui/          # Reusable UI components
+│   │   │   ├── button.tsx
+│   │   │   ├── card.tsx
+│   │   │   ├── input.tsx
+│   │   │   └── modal.tsx
+│   │   ├── layout/
+│   │   │   ├── Header.tsx
+│   │   │   ├── Footer.tsx
+│   │   │   ├── Sidebar.tsx
+│   │   │   └── Navigation.tsx
+│   │   ├── products/
+│   │   │   ├── ProductCard.tsx
+│   │   │   ├── ProductGrid.tsx
+│   │   │   └── ProductDetail.tsx
+│   │   └── chat/
+│   │       ├── ChatWindow.tsx
+│   │       ├── MessageList.tsx
+│   │       └── ChatInput.tsx
+│   ├── lib/
+│   │   ├── supabase/
+│   │   │   ├── client.ts
+│   │   │   ├── db.types.ts
+│   │   │   └── queries.ts
+│   │   ├── utils/
+│   │   │   ├── auth.ts
+│   │   │   ├── formatting.ts
+│   │   │   └── validation.ts
+│   │   └── hooks/
+│   │       ├── useAuth.ts
+│   │       ├── useCart.ts
+│   │       └── useTheme.ts
+│   ├── styles/
+│   │   ├── globals.css
+│   │   └── themes.css
+│   └── types/
+│       ├── product.ts
+│       ├── user.ts
+│       └── order.ts
+├── .env.example
+├── .gitignore
+├── next.config.js
+├── package.json
+├── postcss.config.js
+├── tailwind.config.js
+└── tsconfig.json
+
+# Database Structure (Supabase)
+
+Tables:
+1. users
+   - id (uuid, pk)
+   - email (text)
+   - full_name (text)
+   - role (text)
+   - created_at (timestamp)
+
+2. products
+   - id (uuid, pk)
+   - name (text)
+   - description (text)
+   - price (decimal)
+   - category (text)
+   - images (text[])
+   - stock (integer)
+   - created_at (timestamp)
+
+3. orders
+   - id (uuid, pk)
+   - user_id (uuid, fk)
+   - status (text)
+   - total (decimal)
+   - created_at (timestamp)
+
+4. order_items
+   - id (uuid, pk)
+   - order_id (uuid, fk)
+   - product_id (uuid, fk)
+   - quantity (integer)
+   - price (decimal)
+
+5. chats
+   - id (uuid, pk)
+   - user_id (uuid, fk)
+   - admin_id (uuid, fk)
+   - created_at (timestamp)
+
+6. messages
+   - id (uuid, pk)
+   - chat_id (uuid, fk)
+   - sender_id (uuid, fk)
+   - content (text)
+   - created_at (timestamp)
+
+7. product_reviews
+   - id (uuid, pk)
+   - product_id (uuid, fk)
+   - user_id (uuid, fk)
+   - rating (integer)
+   - comment (text)
+   - created_at (timestamp)
