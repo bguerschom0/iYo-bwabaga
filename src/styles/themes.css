@@ -1,0 +1,75 @@
+/* Sand Beige Theme Colors */
+.theme-sand {
+  --color-primary: #4A3F35;
+  --color-primary-light: #6E6456;
+  --color-primary-dark: #2C2522;
+  --color-secondary: #E8D5C4;
+  --color-secondary-light: #F5E6D3;
+  --color-secondary-dark: #DACBB7;
+  --color-accent: #A69889;
+  --color-text: #2C2522;
+  --color-text-light: #6E6456;
+  --color-background: #FDFCFB;
+}
+
+/* Dark Theme Colors */
+.theme-dark {
+  --color-primary: #E8D5C4;
+  --color-primary-light: #F5E6D3;
+  --color-primary-dark: #DACBB7;
+  --color-secondary: #4A3F35;
+  --color-secondary-light: #6E6456;
+  --color-secondary-dark: #2C2522;
+  --color-accent: #8A7E70;
+  --color-text: #F5E6D3;
+  --color-text-light: #C2B2A3;
+  --color-background: #2C2522;
+}
+
+/* Common Styles */
+.text-gradient {
+  background: linear-gradient(to right, var(--color-primary), var(--color-accent));
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.bg-gradient {
+  background: linear-gradient(to right, var(--color-primary), var(--color-accent));
+}
+
+/* Component Theme Variations */
+.btn-primary {
+  background-color: var(--color-primary);
+  color: var(--color-background);
+}
+
+.btn-secondary {
+  background-color: var(--color-secondary);
+  color: var(--color-text);
+}
+
+.card {
+  background-color: var(--color-background);
+  border: 1px solid var(--color-secondary);
+}
+
+/* Loading States */
+.loading-skeleton {
+  background: linear-gradient(
+    90deg,
+    var(--color-secondary) 25%,
+    var(--color-secondary-light) 50%,
+    var(--color-secondary) 75%
+  );
+  background-size: 200% 100%;
+  animation: loading 1.5s infinite;
+}
+
+@keyframes loading {
+  0% {
+    background-position: 200% 0;
+  }
+  100% {
+    background-position: -200% 0;
+  }
+}
