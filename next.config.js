@@ -1,7 +1,6 @@
 /** @type {import('next').NextConfig} */
 const nextConfig = {
   reactStrictMode: true,
-  pageExtensions: ['jsx'],
   images: {
     domains: [
       'localhost',
@@ -17,10 +16,6 @@ const nextConfig = {
         permanent: true,
       },
     ];
-  },
-  // Add custom webpack config if needed
-  webpack(config) {
-    return config;
   },
 }
 
