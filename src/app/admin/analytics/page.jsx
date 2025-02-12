@@ -1,3 +1,6 @@
+'use client';
+
+
 import React, { useState, useEffect } from 'react';
 import AdminLayout from '@/components/layout/AdminLayout';
 import { Card } from '@/components/ui/card';
